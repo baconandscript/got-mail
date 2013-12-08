@@ -1,0 +1,30 @@
+.mail-box {
+  // @include transition-delay(500ms);
+  @include transition(all 500ms $ease-in-out-quart);
+  @include transform(translate3d(0, 200%, 0));
+  @include opacity(0);
+}
+
+.flag {
+  @include transition(all 500ms $ease-in-out-back);
+  @include transform(rotate(-90deg));
+  @include opacity(0);
+}
+
+.got-mail {
+  .mail-box, .flag {
+    @include opacity(1);
+  }
+  .mail-box {
+    @include transform(translate3d(0, 0, 0));
+  }
+  .flag {
+    @include transition-delay(250ms);
+    @include transform(rotate(0));
+  }
+  // .pole {
+  //   @include transform(translate3d(0, 0, 0));
+  //   @include opacity(1);
+  // }
+
+}

@@ -1,0 +1,66 @@
+.mail-box {
+  $mail-box-width: $base-unit * 15;
+  $mail-box-corner-radius : $mail-box-width / 6;
+
+  @include inline-block(middle);
+  @include border-radius($mail-box-corner-radius $mail-box-corner-radius 0 0);
+  width: $mail-box-width;
+  height: $mail-box-width / 2;
+  background-color: $color-blue;
+  margin: 0 auto;
+  position: relative;
+  &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+  }
+  &:before {
+    @include border-radius($mail-box-corner-radius $mail-box-corner-radius 0 0);
+    background-color: $color-light-blue;
+    width: $mail-box-corner-radius * 2;
+    left: 0;
+    height: 100%;
+  }
+  &:after {
+    $pole-width: 8px;
+    width: $pole-width;
+    height: 100% * 2;
+    left: 50%;
+    bottom: -200%;
+    margin-left: -($pole-width / 2);
+    background-color: $color-dark-blue;
+  }
+}
+.flag {
+  @include transform-origin(50%, 100%, false);
+  $flag-width: 8px;
+  width: $flag-width;
+  height: 100%;
+  margin: -25% auto 0 auto;
+  background-color: $color-red;
+  position: relative;
+  &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+  }
+  &:before {
+    background-color: inherit;
+    width: $flag-width * 4;
+    left: 0;
+    top: 0;
+    height: $flag-width * 2;
+  }
+  &:after {
+    $flag-bolt-width: $flag-width * 3;
+    @include border-radius($flag-bolt-width);
+    @include box-sizing(border-box);
+    background-color: $color-light-blue;
+    border: ($flag-bolt-width / 4) solid $color-red;
+    width: $flag-bolt-width;
+    height: $flag-bolt-width;
+    left: 50%;
+    margin-left: -($flag-bolt-width / 2);
+    bottom: -($flag-bolt-width / 2);
+  }
+}
